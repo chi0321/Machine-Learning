@@ -1,2 +1,2 @@
 # Machine-Learning
-This is some example to achieve simple machine learning algorithm with python
+This is some example to achieve some simple machine learning algorithms with python
