@@ -28,7 +28,7 @@ class LogisticRegression(object):
 		
 	# transform function
 	def _sigmoid(self, x):
-		m, n = x.shape
+		m, n = self.X.shape
 		z = numpy.array([0.0] * (m * n)).reshape(m,n)
 		z = 1.0 / (1.0 + numpy.exp((-1) * x))
 		return z
@@ -36,7 +36,7 @@ class LogisticRegression(object):
 	# caluclate cost
 	def _costFunc(self):
 		m, n = self.X.shape
-		h_theta = self.__sigmoid(numpy.dot(self.X, self.theta))
+		h_theta = self._sigmoid(numpy.dot(self.X, self.theta))
 		
 		cost1 = (-1) * self.Y * numpy.log(h_theta)
 		cost2 = (1.0 - self.Y) * numpy.log(1.0 - h_theta)

@@ -6,8 +6,17 @@ import logistic_regression as LR
 #import data
 #data = numpy.genfromtxt('input.csv', delimiter=',')
 # response is in the first column
-Y = numpy.formfile("ex4x.dat")
-X = numpy.formfile("ex4y.dat")
+X = numpy.genfromtxt("ex4x.dat")
+print X.shape
+Y = numpy.genfromtxt("ex4y.dat")
+
+# n-fold cross validation
+# shuffle data
+m = len(Y)
+index = range(0, m)
+random.shuffle(index)
+X = X[index,:]
+Y = Y[index]
 
 # n-fold 
 nfold = 10
