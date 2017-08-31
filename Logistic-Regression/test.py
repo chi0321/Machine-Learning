@@ -49,9 +49,9 @@ for i in range(0, nfold):
 	testPred = model.predict(testX)
 	testErr[i] = float(sum(testPred != testY)) / len(testY)
 	
-	print("train error=", trainErr[i],"test error=", testErr[i])
-	print(" ")
+	print "train error=", trainErr[i],"test error=", testErr[i]
+	print " "
 
-print("summary:")
-print("average train error = ", numpy.mean(trainErr) * 100, "%")
-print("average test error = ", numpy.mean(testErr) * 100, "%")
+print "summary:"
+print "average train error = ", numpy.mean(trainErr) * 100, "%"
+print "average test error = ", numpy.mean(testErr) * 100, "%"
