@@ -6,8 +6,17 @@ import logistic_regression as LR
 #import data
 #data = numpy.genfromtxt('input.csv', delimiter=',')
 # response is in the first column
-Y = numpy.formfile("ex4x.dat")
-X = numpy.formfile("ex4y.dat")
+X = numpy.genfromtxt("ex4x.dat")
+print X.shape
+Y = numpy.genfromtxt("ex4y.dat")
+
+# n-fold cross validation
+# shuffle data
+m = len(Y)
+index = range(0, m)
+random.shuffle(index)
+X = X[index,:]
+Y = Y[index]
 
 # n-fold 
 nfold = 10
@@ -40,9 +49,9 @@ for i in range(0, nfold):
 	testPred = model.predict(testX)
 	testErr[i] = float(sum(testPred != testY)) / len(testY)
 	
-	print("train error=", trainErr[i],"test error=", testErr[i])
-	print(" ")
+	print "train error=", trainErr[i],"test error=", testErr[i]
+	print " "
 
-print("summary:")
-print("average train error = ", numpy.mean(trainErr) * 100, "%")
-print("average test error = ", numpy.mean(testErr) * 100, "%")
+print "summary:"
+print "average train error = ", numpy.mean(trainErr) * 100, "%"
+print "average test error = ", numpy.mean(testErr) * 100, "%"
